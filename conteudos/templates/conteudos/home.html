@@ -1,0 +1,8 @@
+{% extends "conteudos/base.html" %}
+
+{% block titulo %}Início - Portal da Equipe{% endblock %}
+
+{% block conteudo %}
+    {# |safe faz o Django exibir o HTML guardado no banco em vez de mostrá-lo como texto #}
+    {{ conteudo.conteudo_html|safe }}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Faz o site se adaptar corretamente a celulares e tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Portal da Equipe{% endblock %}</title>
+    <link rel="icon" href="{% static 'conteudos/img/favicon.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'conteudos/css/style.css' %}">
+</head>
+<body>
+
+<div id="container">
+
+    <!-- Cabeçalho principal do portal -->
+    <header>
+        <h1>Portal da Equipe</h1>
+        <p>ATV09 - Desenvolvimento Web com Django</p>
+    </header>
+
+    <!-- Flexbox que organiza o menu e o conteúdo -->
+    <div class="layout">
+
+        <!-- Menu gerado dinamicamente a partir do Model Menu (banco de dados) -->
+        <nav aria-label="Menu principal">
+            {% for item in menu_itens %}
+                <a class="botao{% if request.path == item.get_url %} ativo{% endif %}"
+                   href="{{ item.get_url }}"
+                   {% if item.eh_externo %}target="_blank" rel="noopener"{% endif %}>
+                    {{ item.titulo }}
+                </a>
+            {% endfor %}
+        </nav>
+
+        <!-- Área principal: cada página preenche o bloco "conteudo" -->
+        <main>
+            {% block conteudo %}{% endblock %}
+        </main>
+
+    </div>
+
+    <!-- Rodapé do portal -->
+    <footer>
+        <p>© 2026 - Portal da Equipe</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

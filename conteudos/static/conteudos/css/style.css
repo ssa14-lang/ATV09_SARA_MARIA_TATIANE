@@ -1,0 +1,121 @@
+/* CSS reaproveitado da ATV06, adaptado para o Django.
+   Fica em arquivo estático (e não no campo de conteúdo do Admin). */
+
+/* Fundo da página */
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#e6e6e6;
+}
+
+/* Área principal do portal */
+#container{
+    width:90%;
+    margin:auto;
+    background:white;
+}
+
+/* A tag header representa o cabeçalho do site */
+header{
+    background:#1d2b53;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* O Flexbox organiza o menu e o conteúdo lado a lado */
+.layout{
+    display:flex;
+}
+
+/* A tag nav representa o menu de navegação */
+nav{
+    width:25%;
+    background:#bfbfbf;
+    min-height:700px;
+}
+
+/* A tag main representa a área principal do portal */
+main{
+    width:75%;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+/* A tag footer representa o rodapé da página */
+footer{
+    background:#1d2b53;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* Botões do menu */
+.botao{
+    display:block;
+    padding:12px;
+    text-decoration:none;
+    color:black;
+    border-bottom:1px solid gray;
+    cursor:pointer;
+}
+
+/* Efeito ao passar o mouse */
+.botao:hover{
+    background:#d9d9d9;
+}
+
+/* Item do menu da página que está aberta */
+.botao.ativo{
+    background:#1d2b53;
+    color:white;
+}
+
+/* Título padrão */
+.titulo{
+    color:#1d2b53;
+}
+
+/* Cada conteúdo do portal é exibido em um cartão */
+.card{
+    background:#f5f5f5;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:10px;
+}
+
+/* Imagens adaptáveis para qualquer tamanho de tela */
+.foto,
+.capa{
+    max-width:100%;
+    height:auto;
+    border-radius:10px;
+    display:block;
+    margin-bottom:15px;
+}
+
+/* Em telas menores que 768px o menu fica acima do conteúdo */
+@media screen and (max-width:768px){
+
+    .layout{
+        flex-direction:column;
+    }
+
+    nav{
+        width:100%;
+        min-height:auto;
+    }
+
+    main{
+        width:100%;
+    }
+
+    #container{
+        width:100%;
+    }
+
+    .botao{
+        text-align:center;
+    }
+
+}
